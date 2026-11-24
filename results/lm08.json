@@ -1,0 +1,50 @@
+{
+ "model": "hyb_mix64",
+ "repo": "(new) hybrid: GRU + local/global attention stack",
+ "target_repo": "LM_Dec_Long_HybridMix_LocalGlobal_W64",
+ "category": "Long",
+ "upstream": "lucidrains/x-transformers (MIT), pip 2.31.7 + torch.nn",
+ "unified": [
+  "hyb_mix with window 64: GRU, 3 window-64 RoPE layers, 3 global NoPE layers"
+ ],
+ "torch": "2.5.1+cu124",
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "stage": "lm08",
+ "started": "2026-11-24 11:15:21",
+ "smoke": false,
+ "steps": 6000,
+ "capped": false,
+ "bf16": true,
+ "final_bits": 3.280747927164972,
+ "test": {
+  "512": {
+   "bits_full": 3.2500954593016935
+  },
+  "2048": {
+   "bits_full": 3.2288482926574753,
+   "bits_last512": 3.2251642952890056,
+   "gain_from_history": -0.0036839973684696936
+  },
+  "8192": {
+   "bits_full": 3.2412049881479916,
+   "bits_last512": 3.242333753281267,
+   "gain_from_history": 0.0011287651332754223
+  }
+ },
+ "config": {
+  "train_len": 512,
+  "test_lens": [
+   512,
+   2048,
+   8192
+  ],
+  "batch": 16,
+  "steps": 6000,
+  "eval_every": 1000,
+  "eval_samples": 64,
+  "tail": 256,
+  "max_hours": 1.5
+ },
+ "minutes": 2.8,
+ "seconds": 170.3
+}

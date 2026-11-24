@@ -1,0 +1,24 @@
+{
+ "model": "hyb_mix64",
+ "repo": "(new) hybrid: GRU + local/global attention stack",
+ "target_repo": "LM_Dec_Long_HybridMix_LocalGlobal_W64",
+ "category": "Long",
+ "upstream": "lucidrains/x-transformers (MIT), pip 2.31.7 + torch.nn",
+ "unified": [
+  "hyb_mix with window 64: GRU, 3 window-64 RoPE layers, 3 global NoPE layers"
+ ],
+ "torch": "2.5.1+cu124",
+ "gpu": "NVIDIA GeForce RTX 3070 Ti",
+ "stage": "overfit",
+ "started": "2026-11-24 08:18:55",
+ "smoke": false,
+ "first_ce": 5.686241149902344,
+ "last_ce": 0.0013990334700793028,
+ "passed": true,
+ "pass_loss": 0.5,
+ "steps": 400,
+ "seconds": 16.8,
+ "lr": 0.001,
+ "note": "overfit uses Adam 1e-3 on 4 x 256 bytes; only an implementation check",
+ "bf16": true
+}
